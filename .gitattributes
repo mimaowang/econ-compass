@@ -1,0 +1,14 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Markdown files
+*.md text eol=lf
+
+# YAML/JSON
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+
+# Scripts
+*.sh text eol=lf
+*.py text eol=lf

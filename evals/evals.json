@@ -1,0 +1,52 @@
+﻿{
+  "skill_name": "econ-compass",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我找 10 篇劳动经济学最重要的论文，我需要快速了解这个领域的研究脉络",
+      "expected_output": "一份包含 10 篇劳动经济学论文的 Markdown 清单，每篇有标题、作者、年份、期刊、DOI、中文摘要和中文入选理由，附带 BibTeX 文件。覆盖劳动经济学的核心分支（如劳动供给、人力资本、工资决定、歧视、移民等）。主动询问是否需要下载 PDF。询问是否需要同时检索中文文献。",
+      "files": [],
+      "expectations": [
+        "Output contains exactly 10 papers with complete metadata (title, authors, year, journal, DOI)",
+        "Each paper has a summary in Chinese (中文)",
+        "Each paper has a 1-3 sentence 'Why Irreplaceable' section in Chinese",
+        "Output includes a BibTeX file with all 10 papers",
+        "Skill proactively asks about PDF download",
+        "Skill asks about Chinese literature inclusion (since prompt is in Chinese)",
+        "Selection Notes documents branch coverage for labor economics core branches",
+        "At least 3 alternative rejected candidates are documented"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to understand the literature on digitalization and firm innovation. Find me the 8 most essential papers.",
+      "expected_output": "A Markdown reading list with 8 papers on digitalization and firm innovation. Since this is not a predefined subfield, the skill should use thematic clustering (e.g., digital technology and productivity, platform economics, data and strategy, AI and labor). All output in English. Proactively offers PDF download.",
+      "files": [],
+      "expectations": [
+        "Output contains exactly 8 papers with complete metadata",
+        "Each paper has an English summary and 1-3 sentence 'Why Irreplaceable'",
+        "Output includes a BibTeX file",
+        "Skill identifies thematic clusters since 'digitalization and firm innovation' is not in predefined taxonomy",
+        "Skill proactively asks about PDF download",
+        "No Chinese literature question is asked (prompt is English)",
+        "Selection Notes explains the thematic clustering approach",
+        "Output language matches prompt language (English)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "给我找 5 篇关于碳定价的经济学经典论文，要英文的",
+      "expected_output": "一份包含 5 篇碳定价相关经济学论文的清单。中文提示词 → 询问是否需要中文文献（用户回复：只要英文的）。论文元数据英文，摘要和入选理由中文（跟随提示词）。询问是否需要下载 PDF。",
+      "files": [],
+      "expectations": [
+        "Output contains exactly 5 papers on carbon pricing",
+        "Each paper has a Chinese summary and Chinese 'Why Irreplaceable'",
+        "Paper metadata (title, authors, journal, DOI) is in English",
+        "Output includes a BibTeX file",
+        "Skill asks about Chinese literature inclusion (prompt is Chinese)",
+        "Skill proactively asks about PDF download",
+        "Papers cover key aspects of carbon pricing (carbon tax, ETS, social cost of carbon, etc.)"
+      ]
+    }
+  ]
+}
