@@ -6,7 +6,7 @@
 > **Your compass for navigating economics literature.**
 > Find the most important papers in any field — in minutes, with one-click PDF downloads.
 
-Help you quickly gain a deep understanding of any subfield of economics. A rigorous, multi-dimensional skill for curating essential reading lists in any economics field, subfield, or research topic — and automatically downloading the PDFs. Built on the intellectual tradition of PhD field exams, this skill identifies genuinely **canonical** papers (not just highly cited ones) and explains *why* each paper is irreplaceable.
+Quickly familiarize yourself with and develop a deep understanding of any subfield of economics research. A rigorous, multi-dimensional skill for curating essential reading lists in any economics field, subfield, or research topic — and automatically downloading the PDFs. Built on the intellectual tradition of PhD field exams, this skill identifies genuinely **canonical** papers (not just highly cited ones) and explains *why* each paper is irreplaceable.
 
 ---
 
