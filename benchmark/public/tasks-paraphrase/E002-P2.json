@@ -1,0 +1,25 @@
+{
+  "id": "E002-P2",
+  "name": "English development economics (paraphrase 2)",
+  "prompt": "I'm preparing a field exam in development economics. Could you list the ten canonical papers I absolutely need to read?",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Growth and convergence",
+      "Poverty and inequality measurement",
+      "Human capital",
+      "Agricultural and rural development",
+      "Urbanization and structural transformation",
+      "Institutions and governance",
+      "Credit markets and microfinance",
+      "Social networks and risk-sharing",
+      "Conflict and development",
+      "RCT and experimental methods"
+    ]
+  },
+  "notes_for_graders": "Paraphrase variant of E002. English summaries expected. Should ask about PDF download; no Chinese literature question."
+}

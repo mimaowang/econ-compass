@@ -10,13 +10,34 @@ Quickly familiarize yourself with and develop a deep understanding of any subfie
 
 ---
 
+## 📑 Table of Contents
+
+- [What This Skill Does](#what-this-skill-does)
+- [The Selection Methodology](#the-selection-methodology)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Supported Domains](#supported-domains)
+- [Output Example](#output-example)
+- [Language Support](#language-support)
+- [Why This Skill Exists](#why-this-skill-exists)
+- [Journal Coverage](#journal-coverage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Benchmark](#benchmark)
+- [Bundled Tools](#bundled-tools)
+- [Changelog](#changelog)
+- [Acknowledgments](#acknowledgments)
+- [Disclaimer](#disclaimer)
+
+---
+
 ## 🎯 What This Skill Does
 
 ### 📚 Smart Curation (Function A)
 
 Given any economics-related domain and a paper count N (default 15), this skill produces:
 
-1. **A curated Markdown reading list** — N papers with full metadata, summaries in your language, and 1-3 sentence explanations of why each paper is irreplaceable
+1. **A curated Markdown reading list** — N papers with full metadata, summaries in your language, and 2-5 sentence explanations of why each paper is irreplaceable
 2. **A BibTeX file** — Import directly into Zotero, Mendeley, or any reference manager
 3. **Selection documentation** — Branch/cluster coverage analysis, methodological balance, and rejected alternatives with specific reasons
 4. **Optional Notion/Obsidian formats** — Ready-to-import formats for your note-taking tools
@@ -27,9 +48,10 @@ The output is not a "top-N by citations" list. It is a **curriculum** — a read
 
 After generating the reading list, Econ Compass offers to download all the papers as PDFs:
 
-- Attempts to find legal open-access versions via Semantic Scholar, Unpaywall, arXiv, NBER, SSRN, and RePEc
+- Attempts to find **published-journal** open-access versions via Unpaywall, Semantic Scholar, OpenAlex, and arXiv
+- Deliberately skips preprints, accepted manuscripts, and working-paper versions so the downloaded file matches the cited article
 - Names each PDF with the paper number, title, and authors for easy organization
-- Reports which papers could not be auto-downloaded in a separate file
+- For papers that cannot be auto-downloaded, provides a direct access link (DOI resolver or publisher landing page) so you can retrieve them through your institutional subscription
 - Respects publisher paywalls — only downloads freely available versions
 
 ---
@@ -65,7 +87,11 @@ This skill applies **five dimensions of selection**:
 npx skills add econ-compass
 ```
 
-Or install manually by cloning this repository into your skills directory.
+Or install manually by cloning this repository into your Claude Code skills directory, for example:
+
+```bash
+git clone https://github.com/mimaowang/econ-compass ~/.claude/skills/econ-compass
+```
 
 ---
 
@@ -244,6 +270,52 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
+
+## 🧪 Benchmark
+
+Econ Compass now includes a rigorous benchmark suite in `benchmark/`:
+
+- **20 test cases** covering predefined fields, thematic topics, cross-discipline queries, Chinese/English prompts, small/large N, negative tests, and paraphrase variants.
+- **Sealed gold standard** with must-find papers, acceptable alternatives, and forbidden decoys.
+- **Anti-cheat design**: public tasks + private gold, canary strings, critical caps, with/without skill delta scoring.
+- **Automated grading** via `benchmark/scripts/`.
+
+Run the validation pipeline:
+
+```bash
+python benchmark/scripts/run_benchmark.py --mode simulate --iterations 3
+python benchmark/scripts/aggregate_results.py --workspace benchmark/workspace/iteration-003
+python benchmark/scripts/leak_check.py --workspace benchmark/workspace/iteration-003 --gold benchmark/private-gold/gold.json
+```
+
+See `benchmark/README.md` for the full methodology.
+
+## 🛠️ Bundled Tools
+
+Econ Compass now ships with helper scripts in `scripts/` that turn prompt guidance into reliable engineering output:
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/generate_bibtex.py` | Generate a clean `.bib` file from a Markdown reading list |
+| `scripts/validate_output.py` | Check that a reading list follows `references/output-specification.md` |
+| `scripts/check_dois.py` | Batch-verify DOIs via `doi.org` |
+| `scripts/download_pdfs.py` | Download published-version open-access PDFs via Unpaywall, Semantic Scholar, OpenAlex, and arXiv; provide manual links for the rest |
+
+All scripts run on Windows/Linux and print `--help` for usage details. Core scripts use the Python standard library; `bibtexparser` is optional and enables stricter BibTeX parsing when installed.
+
+### PDF Download Benchmark
+
+To measure how many open-access PDFs are typically available for a 10-paper reading list, run the dedicated benchmark:
+
+```bash
+# Deterministic pipeline test (no network, no email required)
+python benchmark/scripts/test_pdf_download.py --mode mock
+
+# Live test against the Unpaywall API (requires your email)
+python benchmark/scripts/test_pdf_download.py --mode live --email your@email.edu
+```
+
+The fixture contains 10 canonical economics papers. The report shows the published-version auto-download success rate, lists papers that were skipped because only preprints were found, and provides direct access links for papers that require manual retrieval.
 
 ## 📜 Changelog
 

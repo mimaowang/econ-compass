@@ -1,0 +1,26 @@
+{
+  "id": "E007",
+  "name": "Financial econometrics cross-discipline",
+  "prompt": "I need to understand financial econometrics. Give me 12 essential papers.",
+  "expected_output_language": "en",
+  "domain_type": "cross_discipline",
+  "expected_n": 12,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "ARCH/GARCH models",
+      "Cointegration",
+      "Generalized method of moments",
+      "Factor models in asset pricing",
+      "Term structure models",
+      "Option pricing",
+      "Return predictability",
+      "Realized volatility",
+      "Market microstructure",
+      "Value-at-risk and risk management",
+      "Volatility forecasting"
+    ]
+  },
+  "notes_for_graders": "Cross-discipline between finance and econometrics; should weight methodological innovation and empirical significance."
+}

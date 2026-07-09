@@ -172,7 +172,7 @@ Cross-check the final list against at least 3 PhD field course syllabi. If the l
 Ensure reasonable balance across:
 - Theoretical vs. empirical
 - Structural vs. reduced-form
-- Classic (pre-2000) vs. contemporary (post-2010)
+- Classic (pre-2005) vs. contemporary (post-2010)
 - Different methodological approaches
 
 ---
@@ -197,6 +197,16 @@ For each paper in the final list, write 2-5 concise sentences explaining its uni
 > "This is a very important and highly cited paper that has influenced many researchers." (Too generic — all papers on the list should be important. Explain WHY.)
 
 > "This paper uses instrumental variables to estimate the effect of X on Y." (Describes the method but not the contribution.)
+
+### 中文示例
+
+✅ 好示例：
+"Card（1990）利用 Mariel 船民事件作为自然实验，首次用可信的因果推断识别了移民对本地劳动力市场的影响。它推翻了'移民必然压低本地工资'的简单结论，开创了移民经济学中的自然实验传统。如果没有这篇论文，后续关于移民的所有因果识别研究都会失去方法论起点。"
+
+❌ 差示例：
+"这篇论文非常重要，被广泛引用，对移民经济学产生了深远影响。"
+
+**Length guidance:** 中文摘要和入选理由合计建议 150-300 字；英文建议 80-200 词。过短通常意味着理由不够具体。
 
 ---
 

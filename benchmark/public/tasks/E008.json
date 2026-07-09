@@ -1,0 +1,24 @@
+{
+  "id": "E008",
+  "name": "Political economy of development",
+  "prompt": "Find the 10 most important papers on political economy of development.",
+  "expected_output_language": "en",
+  "domain_type": "cross_discipline",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Political institutions and economic outcomes",
+      "State capacity and taxation",
+      "Corruption and rent-seeking",
+      "Conflict and development",
+      "Media and political accountability",
+      "Historical political economy",
+      "Voting and democratization",
+      "Land and colonial institutions",
+      "Inequality and development"
+    ]
+  },
+  "notes_for_graders": "Intersection of political economy and development."
+}

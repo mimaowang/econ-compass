@@ -1,0 +1,14 @@
+{
+  "id": "E012",
+  "name": "Near-miss: introduce macroeconomics",
+  "prompt": "Can you give me a brief introduction to macroeconomics?",
+  "expected_output_language": "en",
+  "domain_type": "boundary",
+  "expected_n": null,
+  "constraints": {
+    "pdf_download": "default",
+    "chinese_literature_question": false,
+    "must_cover_branches": []
+  },
+  "notes_for_graders": "Near-miss trigger test. User asks for an introduction, not a curated reading list. Skill should not produce a reading list; it should answer the conceptual question or decline politely. A reading list would be over-triggering."
+}

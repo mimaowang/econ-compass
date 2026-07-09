@@ -1,0 +1,21 @@
+{
+  "id": "E017",
+  "name": "Chinese economic transformation with Chinese literature",
+  "prompt": "帮我找 10 篇关于中国经济转型的必读论文，要包含《经济研究》和《经济学（季刊）》上的中文文献。",
+  "expected_output_language": "zh",
+  "domain_type": "thematic",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": true,
+    "must_cover_branches": [
+      "农村改革与农业转型",
+      "乡镇企业与非国有部门发展",
+      "国有企业改革与所有制转型",
+      "价格双轨制与市场化",
+      "财政分权与地方政府激励",
+      "对外开放与贸易自由化"
+    ]
+  },
+  "notes_for_graders": "Chinese summaries expected. Skill should proactively ask about Chinese literature and PDF download. Final list must include papers from 经济研究 and/or 经济学（季刊）."
+}

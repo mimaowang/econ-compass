@@ -1,0 +1,25 @@
+{
+  "id": "E011",
+  "name": "Chinese labor economics no PDF",
+  "prompt": "帮我找 8 篇劳动经济学必读论文，无需下载 PDF，只要清单。",
+  "expected_output_language": "zh",
+  "domain_type": "predefined",
+  "expected_n": 8,
+  "constraints": {
+    "pdf_download": "skip_explicit",
+    "chinese_literature_question": true,
+    "must_cover_branches": [
+      "Labor supply",
+      "Human capital",
+      "Wage determination and inequality",
+      "Unemployment and search/matching",
+      "Discrimination",
+      "Immigration",
+      "Labor market institutions",
+      "Personnel economics",
+      "Intergenerational mobility",
+      "Local labor markets and spatial equilibrium"
+    ]
+  },
+  "notes_for_graders": "User explicitly says no PDF download. Skill should skip Phase 7 and note this in output header."
+}

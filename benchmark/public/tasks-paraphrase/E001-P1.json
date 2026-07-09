@@ -1,0 +1,25 @@
+{
+  "id": "E001-P1",
+  "name": "Chinese labor economics broad field (paraphrase 1)",
+  "prompt": "我需要快速了解劳动经济学，能推荐 10 篇最重要的论文吗？",
+  "expected_output_language": "zh",
+  "domain_type": "predefined",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": true,
+    "must_cover_branches": [
+      "Labor supply",
+      "Human capital",
+      "Wage determination and inequality",
+      "Unemployment and search/matching",
+      "Discrimination",
+      "Immigration",
+      "Labor market institutions",
+      "Personnel economics",
+      "Intergenerational mobility",
+      "Local labor markets and spatial equilibrium"
+    ]
+  },
+  "notes_for_graders": "Paraphrase variant of E001. Chinese summaries expected. Skill should proactively ask about Chinese literature and PDF download."
+}

@@ -1,0 +1,26 @@
+{
+  "id": "E019",
+  "name": "Applied microeconometrics reduced-form methods",
+  "prompt": "I need 10 essential papers in applied microeconometrics. Focus only on reduced-form causal inference methods — no structural estimation.",
+  "expected_output_language": "en",
+  "domain_type": "cross_discipline",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Instrumental variables",
+      "Difference-in-differences",
+      "Regression discontinuity design",
+      "Matching and propensity scores",
+      "Synthetic control methods",
+      "Clustered standard errors and inference",
+      "Field experiments and RCTs",
+      "Staggered treatment / event-study methods"
+    ],
+    "special_rules": [
+      "Should NOT include structural estimation papers like BLP demand estimation or dynamic discrete-choice structural models."
+    ]
+  },
+  "notes_for_graders": "Cross-discipline methodological curation. Should ask about PDF download. Decoy test: no structural estimation papers."
+}

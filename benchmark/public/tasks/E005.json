@@ -1,0 +1,23 @@
+{
+  "id": "E005",
+  "name": "Digitalization and firm innovation",
+  "prompt": "I need to understand the literature on digitalization and firm innovation. Find me the 8 most essential papers.",
+  "expected_output_language": "en",
+  "domain_type": "thematic",
+  "expected_n": 8,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Digital technologies and firm productivity",
+      "Platform economics and market structure",
+      "Data economics and privacy",
+      "AI, automation, and labor substitution",
+      "Digital markets and pricing",
+      "E-commerce and consumer surplus",
+      "Digitalization and inequality",
+      "Innovation and IT adoption"
+    ]
+  },
+  "notes_for_graders": "This is not a predefined subfield; skill should use thematic clustering."
+}

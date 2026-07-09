@@ -1,0 +1,14 @@
+{
+  "id": "E014",
+  "name": "Near-miss: textbooks recommendation",
+  "prompt": "推荐几本经济学入门教材给我，不是论文。",
+  "expected_output_language": "zh",
+  "domain_type": "boundary",
+  "expected_n": null,
+  "constraints": {
+    "pdf_download": "default",
+    "chinese_literature_question": false,
+    "must_cover_branches": []
+  },
+  "notes_for_graders": "Near-miss trigger test. User explicitly asks for textbooks, not papers. Skill should not produce a paper reading list."
+}

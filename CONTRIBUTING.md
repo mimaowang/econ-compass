@@ -52,6 +52,17 @@ Help validate the methodology:
 If you notice Chinese-language output that could be improved:
 - `[Translation] [Field Name] — [specific issue]`
 
+### 🧪 Improve the Benchmark
+
+If you want to add test cases, fix grading logic, or improve the benchmark framework:
+
+1. Test cases go in `benchmark/public/tasks/`
+2. Gold standards go in `benchmark/private-gold/gold.json` (kept out of git)
+3. Grading scripts live in `benchmark/scripts/`
+4. Run `python benchmark/scripts/run_benchmark.py --mode simulate --iterations 3` to validate
+
+See `benchmark/README.md` for the full benchmark design.
+
 ---
 
 ## Contribution Process

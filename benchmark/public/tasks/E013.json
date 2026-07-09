@@ -1,0 +1,14 @@
+{
+  "id": "E013",
+  "name": "Near-miss: Python literature review",
+  "prompt": "Help me write a Python script that summarizes a literature review from PDFs.",
+  "expected_output_language": "en",
+  "domain_type": "boundary",
+  "expected_n": null,
+  "constraints": {
+    "pdf_download": "default",
+    "chinese_literature_question": false,
+    "must_cover_branches": []
+  },
+  "notes_for_graders": "Near-miss trigger test. This is a coding request, not a request to curate economics papers. Skill should not trigger."
+}

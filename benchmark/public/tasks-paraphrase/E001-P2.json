@@ -1,0 +1,25 @@
+{
+  "id": "E001-P2",
+  "name": "Chinese labor economics broad field (paraphrase 2)",
+  "prompt": "Labor econ: what are the 10 papers every grad student should read?",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Labor supply",
+      "Human capital",
+      "Wage determination and inequality",
+      "Unemployment and search/matching",
+      "Discrimination",
+      "Immigration",
+      "Labor market institutions",
+      "Personnel economics",
+      "Intergenerational mobility",
+      "Local labor markets and spatial equilibrium"
+    ]
+  },
+  "notes_for_graders": "Paraphrase variant of E001 in English. English summaries expected. Skill should ask about PDF download; no Chinese literature question required."
+}

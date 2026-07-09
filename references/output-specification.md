@@ -37,7 +37,7 @@ For each curated reading list, produce the following files:
 [Brief abstract in the requested output language. 3-5 sentences summarizing the research question, method, key finding, and significance.]
 
 ### Why This Paper Is Irreplaceable
-[1-3 concise sentences explaining what unique intellectual contribution this paper made and why no other paper can substitute for it. Focus on: what new idea/method/evidence did it introduce? Why would removing it leave a gap?]
+[2-5 sentences explaining what unique intellectual contribution this paper made and why no other paper can substitute for it. Prioritize substance over strict brevity. Focus on: what new idea/method/evidence did it introduce? Why would removing it leave a gap?]
 
 ---
 
@@ -64,6 +64,8 @@ For each curated reading list, produce the following files:
 | ... | ... |
 [Brief note on journal quality, e.g., "All papers from T5 or field-top journals."]
 
+Use standard journal abbreviations (AER, QJE, JPE, Econometrica, RES, JDE, etc.). Group journals by their standard short name. Add a brief note on overall venue quality.
+
 **Validation Sources:**
 - Syllabi reviewed: [N] PhD programs ([list programs consulted])
 - Handbook chapters consulted: [List specific chapters]
@@ -74,6 +76,12 @@ For each curated reading list, produce the following files:
 | Paper | Why Rejected | Replaced By |
 |-------|-------------|-------------|
 | [Author (Year), "Title"] | [Reason — superseded, narrower scope, less influential, overlapping contribution] | [Paper #N] |
+
+Example of specific rejection reason:
+
+| Paper | Why Rejected | Replaced By |
+|-------|-------------|-------------|
+| Card & Krueger (1994), "Minimum Wages and Employment" | Superseded by later meta-analyses; kept Dube et al. (2010) for broader geographic coverage | Paper 3 |
 
 ---
 
@@ -145,7 +153,7 @@ If the user mentions Obsidian, offer this format with callout blocks:
 >
 > **Summary**: [summary text]
 >
-> **Why Irreplaceable**: [1-3 sentence reasoning]
+> **Why Irreplaceable**: [2-5 sentence reasoning]
 
 ---
 
@@ -156,23 +164,29 @@ If the user mentions Obsidian, offer this format with callout blocks:
 
 ## Unavailable Papers Template (Phase 7)
 
-When some papers cannot be auto-downloaded, generate a separate file:
+When some papers cannot be auto-downloaded, generate a separate file. Papers that
+have a DOI always receive a direct access link (DOI resolver) even when no
+open-access PDF is found automatically.
 
 ```markdown
 # Papers That Could Not Be Auto-Downloaded
 
-> [Domain Name] — [YYYY-MM-DD]. The following papers from the reading list could not be automatically downloaded as PDFs.
+> [Domain Name] — [YYYY-MM-DD]. The following papers from the reading list could not be automatically downloaded as published-version PDFs. A direct access link is provided for each so the user can retrieve the paper through their institutional subscription.
 
-| # | Title | Authors | DOI | Reason |
-|---|-------|---------|-----|--------|
-| 3 | [Title] | [Authors] | [DOI] | Paywalled — no open-access version found via Unpaywall or Semantic Scholar |
-| 7 | [Title] | [Authors] | [DOI] | DOI resolution failed — paper may not be digitized or DOI is incorrect |
-| 12 | [Title] | [Authors] | [DOI] | Publisher blocks automated access; requires institutional login |
+| # | Title | Authors | DOI | Status | Manual Link | Source Tried | Reason |
+|---|-------|---------|-----|--------|-------------|--------------|--------|
+| 3 | [Title] | [Authors] | [DOI] | manual_link | https://doi.org/10.xxxx/xxxxx | semanticscholar | No open-access published-version PDF found |
+| 7 | [Title] | [Authors] | [DOI] | manual_link | https://doi.org/10.xxxx/xxxxx | - | DOI resolution failed — paper may not be digitized or DOI is incorrect |
+| 12 | [Title] | [Authors] | - | unavailable | - | - | No DOI or access link found |
+
+## How to use the Manual Link
+- **doi_resolver**: The DOI resolver (`https://doi.org/...`) redirects to the publisher's official article page, where the PDF can be downloaded if the user's institution has a subscription.
+- **landing_page**: A publisher or repository page for the article.
 
 ## Suggestions
-- Try accessing these papers through your university library proxy
-- Check ResearchGate or author's personal website for preprints
-- Use interlibrary loan services for older papers
+- Open the DOI resolver link while connected to your university/library network or VPN
+- If the link redirects to a paywall, request the paper through your library's interlibrary loan
+- Check ResearchGate or the author's personal website only if you cannot access the publisher version
 ```
 
 ---

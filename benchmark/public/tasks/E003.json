@@ -1,0 +1,27 @@
+{
+  "id": "E003",
+  "name": "Asset pricing post-1990",
+  "prompt": "Curate the foundational literature on asset pricing. Focus on post-1990 work. Give me 12 papers.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 12,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Portfolio theory",
+      "Factor models",
+      "Factor models",
+      "Equity premium puzzle",
+      "Consumption-based asset pricing",
+      "Consumption-based asset pricing",
+      "Behavioral asset pricing",
+      "Term structure of interest rates",
+      "Derivatives pricing",
+      "Market efficiency and anomalies",
+      "Liquidity and asset pricing",
+      "Macro-finance"
+    ]
+  },
+  "notes_for_graders": "All selected papers should be from 1990 or later due to explicit constraint."
+}

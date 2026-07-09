@@ -14,7 +14,19 @@ desktop.ini
 __pycache__/
 *.pyc
 *.pyo
+.venv/
+venv/
+env/
 
 # Temporary files
 *.tmp
 *.log
+*.env
+.env.*
+
+# Sealed benchmark gold standard
+benchmark/private-gold/
+
+# Benchmark generated outputs (can be regenerated with run_benchmark.py)
+benchmark/workspace/
+benchmark/reports/

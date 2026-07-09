@@ -1,0 +1,25 @@
+{
+  "id": "E002",
+  "name": "English development economics",
+  "prompt": "Find me the 10 most important papers in development economics.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Growth and convergence",
+      "Poverty and inequality measurement",
+      "Human capital",
+      "Agricultural and rural development",
+      "Urbanization and structural transformation",
+      "Institutions and governance",
+      "Credit markets and microfinance",
+      "Social networks and risk-sharing",
+      "Conflict and development",
+      "RCT and experimental methods"
+    ]
+  },
+  "notes_for_graders": "English output. Should ask about PDF download. No Chinese literature question."
+}

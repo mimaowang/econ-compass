@@ -1,0 +1,20 @@
+{
+  "id": "E006-P2",
+  "name": "Chinese carbon pricing English-only (paraphrase 2)",
+  "prompt": "Recommend 5 classic English papers on carbon pricing.",
+  "expected_output_language": "en",
+  "domain_type": "thematic",
+  "expected_n": 5,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Carbon tax theory",
+      "Carbon trading and market design",
+      "Social cost of carbon",
+      "Effects of carbon pricing policies",
+      "Environmental taxation and the double dividend"
+    ]
+  },
+  "notes_for_graders": "Paraphrase variant of E006 in English. English summaries expected. Should ask about PDF download; no Chinese literature question."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "E004",
+  "name": "Behavioral economics",
+  "prompt": "What are the must-read papers in behavioral economics? I need 8 essential ones.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 8,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Heuristics and biases",
+      "Prospect theory and loss aversion",
+      "Time inconsistency and hyperbolic discounting",
+      "Social preferences",
+      "Nudge and choice architecture",
+      "Limited attention and salience",
+      "Behavioral public economics",
+      "Behavioral finance"
+    ]
+  },
+  "notes_for_graders": "English output. Should cover both classic Tversky-Kahneman and modern applied behavioral papers."
+}

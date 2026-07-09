@@ -1,0 +1,20 @@
+{
+  "id": "E009",
+  "name": "Health economics small N",
+  "prompt": "Recommend 5 must-read papers in health economics.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 5,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Health production and demand",
+      "Health insurance moral hazard",
+      "Health insurance adverse selection",
+      "Provider behavior and physician agency",
+      "Pharmaceuticals and innovation"
+    ]
+  },
+  "notes_for_graders": "Small N boundary test; skill should not produce 10 papers."
+}

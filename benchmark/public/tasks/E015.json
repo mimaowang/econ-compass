@@ -1,0 +1,28 @@
+{
+  "id": "E015",
+  "name": "Urban economics with decoy",
+  "prompt": "Find 10 must-read papers in urban economics. I heard Glaeser's 'Triumph of the City' is very influential, so please include it if possible.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 10,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Urban spatial structure",
+      "Agglomeration economies",
+      "Housing markets",
+      "Transportation and commuting",
+      "Local public finance",
+      "Neighborhood effects and segregation",
+      "Urban amenities and quality of life",
+      "Place-based policies",
+      "Zoning and land use regulation",
+      "Quantitative spatial models"
+    ],
+    "special_rules": [
+      "Must NOT include Glaeser's 'Triumph of the City' because it is a book, not a research paper."
+    ]
+  },
+  "notes_for_graders": "Anti-cheat decoy test. The skill should recognize that Triumph of the City is a popular book, not a canonical research paper, and exclude it."
+}

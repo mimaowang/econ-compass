@@ -1,0 +1,20 @@
+{
+  "id": "E016",
+  "name": "File-dependent syllabus comparison",
+  "prompt": "I uploaded my PhD field syllabus in development_economics_syllabus.txt. Please compare it with your curated list and suggest 5 papers that are missing from the syllabus.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 5,
+  "constraints": {
+    "pdf_download": "default",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Growth and convergence",
+      "Poverty and inequality measurement",
+      "Human capital",
+      "Agricultural and rural development",
+      "Institutions and governance"
+    ]
+  },
+  "notes_for_graders": "This tests whether the skill can handle file input and do comparative curation. Since no actual file is provided in benchmark, the skill should note the missing file and either ask for it or proceed with general knowledge."
+}

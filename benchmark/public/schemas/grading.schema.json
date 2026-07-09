@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Econ Compass Grading Result",
+  "type": "object",
+  "required": [
+    "task_id",
+    "configuration",
+    "scores",
+    "assertions",
+    "critical_caps",
+    "total_score"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "configuration": {
+      "type": "string",
+      "enum": [
+        "with_skill",
+        "without_skill"
+      ]
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "coverage",
+        "canonical_quality",
+        "justification_quality",
+        "evidence_metadata",
+        "output_format",
+        "interaction"
+      ],
+      "properties": {
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "canonical_quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 25
+        },
+        "justification_quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "evidence_metadata": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "output_format": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "interaction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 15
+        }
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "passed",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "critical_caps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "triggered",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "triggered": {
+            "type": "boolean"
+          },
+          "cap": {
+            "type": "number"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "raw_score": {
+      "type": "number"
+    },
+    "capped_score": {
+      "type": "number"
+    },
+    "total_score": {
+      "type": "number"
+    }
+  }
+}

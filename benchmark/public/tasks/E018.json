@@ -1,0 +1,26 @@
+{
+  "id": "E018",
+  "name": "Behavioral economics original research only",
+  "prompt": "Find me 8 must-read papers in behavioral economics. I do NOT want survey or review articles — only original research papers.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 8,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Heuristics and biases",
+      "Prospect theory and loss aversion",
+      "Time inconsistency and hyperbolic discounting",
+      "Social preferences",
+      "Nudge and choice architecture",
+      "Limited attention and salience",
+      "Behavioral public economics",
+      "Behavioral finance"
+    ],
+    "special_rules": [
+      "Must NOT include survey or review articles (e.g., 'Advances in Behavioral Economics' survey chapters or handbook chapters)."
+    ]
+  },
+  "notes_for_graders": "English output. Should ask about PDF download. No Chinese literature question. Anti-cheat decoy: do not include survey/review articles."
+}

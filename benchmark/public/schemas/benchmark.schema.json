@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Econ Compass Benchmark Aggregate",
+  "type": "object",
+  "required": ["skill_name", "iteration", "timestamp", "runs", "summary"],
+  "properties": {
+    "skill_name": { "type": "string" },
+    "iteration": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task_id", "configuration", "run_id", "total_score", "duration_ms", "tokens"],
+        "properties": {
+          "task_id": { "type": "string" },
+          "configuration": { "type": "string", "enum": ["with_skill", "without_skill"] },
+          "run_id": { "type": "integer" },
+          "total_score": { "type": "number" },
+          "duration_ms": { "type": "integer" },
+          "tokens": { "type": "integer" }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["with_skill", "without_skill", "delta"],
+      "properties": {
+        "with_skill": {
+          "type": "object",
+          "required": ["mean", "std", "min", "max", "n"],
+          "properties": {
+            "mean": { "type": "number" },
+            "std": { "type": "number" },
+            "min": { "type": "number" },
+            "max": { "type": "number" },
+            "n": { "type": "integer" }
+          }
+        },
+        "without_skill": {
+          "type": "object",
+          "required": ["mean", "std", "min", "max", "n"],
+          "properties": {
+            "mean": { "type": "number" },
+            "std": { "type": "number" },
+            "min": { "type": "number" },
+            "max": { "type": "number" },
+            "n": { "type": "integer" }
+          }
+        },
+        "delta": {
+          "type": "object",
+          "required": ["mean", "std"],
+          "properties": {
+            "mean": { "type": "number" },
+            "std": { "type": "number" }
+          }
+        },
+        "critical_cap_violations": {
+          "type": "integer"
+        },
+        "flaky_evals": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "E010",
+  "name": "International trade large N",
+  "prompt": "I am preparing for a field exam in international trade. Curate 20 canonical papers I absolutely must read.",
+  "expected_output_language": "en",
+  "domain_type": "predefined",
+  "expected_n": 20,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": false,
+    "must_cover_branches": [
+      "Comparative advantage",
+      "Comparative advantage",
+      "Gravity models and trade costs",
+      "Gravity models and trade costs",
+      "Gains from trade",
+      "Gains from trade",
+      "Trade and labor markets",
+      "Trade and labor markets",
+      "Trade policy",
+      "Trade policy",
+      "Firm heterogeneity and trade",
+      "Firm heterogeneity and trade",
+      "Global value chains",
+      "Global value chains",
+      "Trade and development",
+      "Trade and development",
+      "Trade geography",
+      "Trade geography",
+      "Services trade",
+      "Services trade"
+    ]
+  },
+  "notes_for_graders": "Large N boundary test."
+}

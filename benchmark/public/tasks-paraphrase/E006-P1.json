@@ -1,0 +1,20 @@
+{
+  "id": "E006-P1",
+  "name": "Chinese carbon pricing English-only (paraphrase 1)",
+  "prompt": "请推荐 5 篇碳定价领域的经典英文论文。",
+  "expected_output_language": "zh",
+  "domain_type": "thematic",
+  "expected_n": 5,
+  "constraints": {
+    "pdf_download": "ask",
+    "chinese_literature_question": true,
+    "must_cover_branches": [
+      "Carbon tax theory",
+      "Carbon trading and market design",
+      "Social cost of carbon",
+      "Effects of carbon pricing policies",
+      "Environmental taxation and the double dividend"
+    ]
+  },
+  "notes_for_graders": "Paraphrase variant of E006. Chinese summaries but English paper metadata. Skill should ask about Chinese literature, then user replies English only. Final list should still be English papers."
+}

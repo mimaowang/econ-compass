@@ -46,6 +46,20 @@ Trigger this skill when the user expresses any of these intents (in English or C
 
 ---
 
+## When NOT to Use This Skill
+
+Do NOT trigger this skill if the user's request is any of the following. In these cases, answer the question directly or politely decline; do not generate a reading list:
+
+- **Concept introduction or explanation:** "What is macroeconomics?", "Explain general equilibrium", "什么是因果推断？"
+- **Textbook or book recommendations:** "Recommend textbooks on econometrics", "有哪些好的宏观经济学教材？"
+- **Code or script writing:** "Write a Python script to scrape papers", "帮我写个 Stata 代码"
+- **Summarizing or translating a specific paper:** "Summarize this PDF", "翻译这篇论文", "请帮我读一下 Acemoglu (2001)"
+- **General research help unrelated to literature curation:** "Help me write my literature review paragraph", "Find the latest working papers this month"
+
+These requests are valid user needs, but they fall outside the scope of econ-compass. Respond directly to the actual question rather than producing a curated reading list.
+
+---
+
 ## Core Workflow
 
 ### Phase 1: Understand the Request
@@ -70,6 +84,15 @@ Load `references/field-taxonomy.md`.
 - Note neighboring subfields to avoid redundancy
 - Identify key handbooks and review sources for validation
 - Goal: know what intellectual territory the N papers must cover
+
+#### Branch Prioritization for Small N
+
+When the user's requested paper count N is smaller than the number of core branches in the subfield, do not mechanically truncate the taxonomy. Instead:
+
+1. **Prioritize branches most commonly emphasized in PhD field exams for that subfield.** These are the branches a field exam committee would consider essential.
+2. **Merge closely related branches under a single paper only when that paper genuinely covers both.** Do not force a multi-branch claim onto a paper that only addresses one branch.
+3. **Document omissions transparently.** In the Selection Notes, list which branches were omitted due to the small N and explain the rationale.
+4. **Avoid simply taking the first N branches from the taxonomy order.** Branch order in `field-taxonomy.md` is organizational, not a ranking of importance.
 
 **If the user's domain does NOT match any predefined subfield (e.g., "digitalization and firm innovation"):**
 - Use your knowledge to identify 3-5 thematic clusters within that domain
@@ -151,6 +174,28 @@ Load `references/output-specification.md` and produce:
 
 3. **Optional: Notion/Obsidian format** — If the user mentions Notion or Obsidian, offer the alternative format specified in `output-specification.md`
 
+#### Output Quality Requirements
+
+1. **BibTeX is mandatory.** The `.bib` file must contain exactly N valid `@article{...}` entries, one per paper. If you cannot generate a valid BibTeX entry, do not include that paper.
+
+2. **Validation Sources are mandatory.** Selection Notes must include a "Validation Sources" subsection listing:
+   - Syllabi reviewed: [N] PhD programs
+   - Handbook chapters consulted: [specific chapters]
+   - Key review articles: [JEL/JEP articles]
+   - Other authoritative sources used
+
+3. **Alternative Candidates must be specific.** Include at least 3 rejected alternatives with:
+   - Full citation
+   - Specific reason for rejection
+   - Which final paper replaced it
+   Avoid generic reasons like "overlapping contribution" without explanation.
+
+4. **Use bundled tools.** After drafting the Markdown reading list, run the scripts in `scripts/` to:
+   - Generate the BibTeX file (`scripts/generate_bibtex.py`)
+   - Validate output format (`scripts/validate_output.py`)
+   - Verify DOIs (`scripts/check_dois.py`)
+   If validation fails, fix the output before returning it to the user.
+
 ### Phase 7: PDF Download
 
 **Trigger rule:** If the user's original request explicitly stated they do not need PDFs (e.g., "无需下载", "no download needed", "不用下载"), skip Phase 7 entirely. Append a note to the reading list output header: *"[PDF download skipped per user request.]"* and end the workflow.
@@ -162,14 +207,15 @@ Load `references/output-specification.md` and produce:
 
 If the user says yes, load `references/pdf-download-guide.md` and:
 
-1. Attempt to download each paper's PDF in order
-2. Name each PDF: `[NN] Full Title - Authors.pdf` where NN is the two-digit paper number (01, 02, ...)
-3. Track which papers were successfully downloaded and which failed
-4. After all attempts, append a download summary to the reading list:
-   - Successfully downloaded: X/N
-   - Could not auto-download: (N-X)
+1. Attempt to download each paper's PDF in order using the multi-source fallback chain (Unpaywall → Semantic Scholar → OpenAlex → arXiv)
+2. Only keep **published-journal versions**. Deliberately skip preprints, accepted manuscripts, and working-paper versions so the downloaded file matches the cited article
+3. Name each PDF: `[NN] Full Title - Authors.pdf` where NN is the two-digit paper number (01, 02, ...)
+4. Track which papers were successfully downloaded and which could not be auto-downloaded
+5. After all attempts, append a download summary to the reading list:
+   - Successfully downloaded (published version): X/N
+   - Manual link provided: Y/N
    - Saved to the output directory
-5. For papers that could not be downloaded, generate `unavailable-papers.md` listing each paper with title, authors, DOI, and the reason download failed
+6. For papers that could not be auto-downloaded, generate `unavailable-papers.md` listing each paper with title, authors, DOI, a direct access link (DOI resolver or publisher landing page), and the reason auto-download failed
 
 If the user says no, end the workflow.
 
@@ -193,6 +239,20 @@ Apply these principles throughout the curation process:
 
 ---
 
+## Exclusion Rules
+
+The following types of works may **not** be selected as canonical papers in a reading list:
+
+- **Textbooks and monographs:** These are teaching and synthesis works, not primary research contributions.
+- **Bestsellers and popular science books:** Works aimed at a general audience (e.g., *Freakonomics*, *Capital in the Twenty-First Century* as a book) are outside the scope.
+- **Survey and review articles:** Unless the user explicitly asks for a survey/review-focused list, do not select articles whose primary contribution is summarizing existing literature.
+- **Working papers superseded by later research:** Do not select working papers that have been clearly overturned or fully superseded by subsequent published work.
+- **Papers outside economics/finance/econometrics:** Do not select papers from unrelated disciplines unless they are foundational to the economics field in question (e.g., a foundational statistics paper for econometrics).
+
+**If the user explicitly requests books or surveys:** Explain that econ-compass focuses on canonical primary research papers, and ask whether they want to switch to a book/survey-oriented mode or proceed with primary papers.
+
+---
+
 ## Quality Standards
 
 Every curated reading list must meet these standards:
@@ -204,6 +264,8 @@ Every curated reading list must meet these standards:
 - **Balance:** Mix of eras, methods, and approaches documented in Selection Notes
 - **Honesty:** Alternative candidates considered and reasons for rejection provided
 - **PDF completeness:** If Phase 7 is triggered, maximize download success; report failures transparently
+- **Metadata verification:** DOI must be in valid format `10.XXXX/XXXX`; never use placeholder values
+- **Validation gate:** Output must pass `scripts/validate_output.py` before finalization
 
 ---
 
@@ -216,6 +278,19 @@ Load these bundled resources as needed during curation:
 - **`references/selection-methodology.md`** — Full multi-dimensional selection framework with criteria definitions, validation sources, search strategy, cross-discipline adjustments, and common pitfalls. Load during **Phase 3-4**.
 - **`references/output-specification.md`** — Exact output templates (Markdown, BibTeX, Notion, Obsidian), quality checklist, and Phase 7 output formats. Load during **Phase 5-7**.
 - **`references/pdf-download-guide.md`** — Step-by-step instructions for downloading papers after curation, including API strategies, naming conventions, and failure handling. Load during **Phase 7**.
+
+---
+
+## Bundled Tools
+
+In addition to reference files, this project includes executable scripts in the `scripts/` directory. Use them to turn prompt-level guidance into reliable engineering output:
+
+- **`scripts/generate_bibtex.py`** — Generate a valid `.bib` file from the Markdown reading list.
+- **`scripts/validate_output.py`** — Validate that the Markdown and BibTeX outputs conform to the required structure and contain exactly N entries.
+- **`scripts/check_dois.py`** — Verify that all DOIs are in valid format and resolvable.
+- **`scripts/download_pdfs.py`** — Attempt to download PDFs for all listed papers and report failures.
+
+Run these scripts after drafting the reading list and before returning output to the user. Fix any validation failures before finalization.
 
 ---
 

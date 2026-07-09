@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Econ Compass Benchmark Task",
+  "type": "object",
+  "required": [
+    "id",
+    "prompt",
+    "expected_output_language",
+    "domain_type",
+    "constraints"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique task identifier, e.g., E001"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable task name"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "The user prompt to feed to the model"
+    },
+    "expected_output_language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "zh"
+      ],
+      "description": "Expected language for summaries and justifications"
+    },
+    "domain_type": {
+      "type": "string",
+      "enum": [
+        "predefined",
+        "thematic",
+        "cross_discipline",
+        "boundary"
+      ],
+      "description": "Type of domain coverage being tested"
+    },
+    "expected_n": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Expected number of papers if specified in prompt; null if default"
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "pdf_download": {
+          "type": "string",
+          "enum": [
+            "ask",
+            "skip_explicit",
+            "default"
+          ],
+          "description": "How PDF download should be handled"
+        },
+        "chinese_literature_question": {
+          "type": "boolean",
+          "description": "Whether the skill should ask about Chinese literature inclusion"
+        },
+        "must_cover_branches": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Branches or clusters that must be covered"
+        },
+        "special_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional rules to check"
+        }
+      }
+    },
+    "notes_for_graders": {
+      "type": "string",
+      "description": "Non-gold hints for graders, e.g., acceptable flexibility"
+    }
+  }
+}
